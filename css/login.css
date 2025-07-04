@@ -1,0 +1,163 @@
+/* Login And Register Style */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #282C34;
+  color: #ABB2BF;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* conteudo da navbar */
+.navbar {
+  background-color: #21252B;
+  height: 12vh;
+  display: flex;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 2px 2px #61AFEF44;
+}
+
+.Logo {
+  height: 12vh;
+  margin-left: 2vw;
+  align-self: center;
+}
+
+.RegisterDiv {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.RegisterButton {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  background-color: transparent;
+  color: #E5C07B;
+  border: 2px solid #E5C07B;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* reset */
+  transition: all 0.3s ease;
+}
+
+.RegisterButton:hover {
+  background-color: #E5C07B;
+  color: #282C34;
+
+}
+
+.LoginButton {
+  padding: 8px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: Arial, sans-serif;
+  background-color: #61AFEF;
+  color: #282C34;
+  border: 1px solid #61AFEF;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  /* reset */
+  transition: all 0.3s ease;
+}
+
+.LoginButton:hover {
+  background-color: transparent;
+  color: #61AFEF;
+  border-color:#61AFEF;
+}
+
+/* conteudo do body */
+
+.ContainerScreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Title {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  color: #ABB2BF;
+}
+
+h1:hover {
+  color: #E5C07B;
+}
+
+label {
+  color: #ABB2BF;
+}
+
+label:hover {
+  color: #61AFEF;
+}
+
+.ContainerFR {
+  background-color: #21252B;
+  padding: 2rem;
+  margin-top: 5vh;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  width: 30vw;
+  flex-direction: column;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+}
+
+.Form input {
+  background-color: #3C4043;
+  color: #ABB2BF;
+  padding: 0.8rem;
+  border: 1px solid #61AFEF;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.Form input:focus {
+  outline: none;
+  border: 2px solid #E5C07B;
+}
+p {
+  color: #ABB2BF;
+}
+.CH {
+  text-decoration: none;
+  color:  #61AFEF;
+}
+
+.CH:hover {
+  color: #E5C07B;
+}
+
+input.Confirm {
+  margin-top: 1rem;
+  background-color: #E5C07B;
+  color: #282C34;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+input.Confirm:hover {
+  background-color: #D1A75B;
+  color: #fff;
+}
