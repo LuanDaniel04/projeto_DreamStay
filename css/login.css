@@ -1,6 +1,6 @@
 /* Login And Register Style */
 body {
-  font-family: Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #282C34;
   color: #ABB2BF;
   margin: 0;
@@ -37,14 +37,15 @@ body {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  font-family: Arial, sans-serif;
   background-color: transparent;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #E5C07B;
   border: 2px solid #E5C07B;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
   /* reset */
   transition: all 0.3s ease;
 }
+
 
 .RegisterButton:hover {
   background-color: #E5C07B;
@@ -57,12 +58,11 @@ body {
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  font-family: Arial, sans-serif;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   background-color: #61AFEF;
   color: #282C34;
   border: 2px solid #61AFEF;
   box-shadow: 0 0 0 rgba(0, 0, 0, 0);
-  /* reset */
   transition: all 0.3s ease;
 }
 
@@ -121,6 +121,7 @@ label:hover {
 
 .Form input {
   background-color: #3C4043;
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: #ABB2BF;
   padding: 0.8rem;
   border: 1px solid #61AFEF;
@@ -159,5 +160,4 @@ input.Confirm {
 
 input.Confirm:hover {
   background-color: #D1A75B;
-  color: #fff;
 }

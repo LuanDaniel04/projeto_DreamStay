@@ -1,25 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #282C34;
     color: #ABB2BF;
     margin: 0;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 /* conteudo da navbar */
 .navbar {
     background-color: #21252B;
     height: 12vh;
+    width: 100vw;
     display: flex;
     align-items: center;
     padding: 0 2rem;
     box-shadow: 0 2px 2px #61AFEF44;
 }
+
 .Logo {
     height: 12vh;
     margin-left: 2vw;
     align-self: center;
 }
+
 .search_container {
     margin-left: auto;
     display: flex;
@@ -36,10 +46,12 @@ body {
     background-color: #3C4043;
     color: #ABB2BF;
     transition: border-color 0.3s;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .Search::placeholder {
     color: #ABB2BF;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .Search:focus {
@@ -48,36 +60,36 @@ body {
 }
 
 .LoginButton, .RegisterButton {
-  padding: 8px 16px;
-  border-radius: 6px;
-  font-weight: bold;
-  cursor: pointer;
-  border: 2px solid transparent;
-  transition: all 0.3s ease;
-  font-family: Arial, sans-serif;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
 .LoginButton {
-  background-color: #61AFEF;
-  color: #282C34;
-  border-color: #61AFEF;
+    background-color: #61AFEF;
+    color: #282C34;
+    border-color: #61AFEF;
 }
 
 .LoginButton:hover {
-  background-color: transparent;
-  color: #61AFEF;
-  border-color: #61AFEF;
+    background-color: transparent;
+    color: #61AFEF;
+    border-color: #61AFEF;
 }
 
 .RegisterButton {
-  background-color: transparent;
-  color: #E5C07B; 
-  border: 2px solid #E5C07B;
+    background-color: transparent;
+    color: #E5C07B; 
+    border: 2px solid #E5C07B;
 }
 
 .RegisterButton:hover {
-  background-color: #E5C07B;
-  color: #282C34;
+    background-color: #E5C07B;
+    color: #282C34;
 }
 
 /* conteudo do body */
@@ -88,7 +100,7 @@ body {
     width: 3vw;
     height: 2vh;
     margin-bottom: 4vh;
-    
+    margin-top: 4vh;
 }
 
 .CategoryTitle:hover {
@@ -99,15 +111,19 @@ body {
     background-color: #3E4451;
     display: flex;
     align-content: center;
+    justify-content: space-around;
     width: 100vw;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    margin-bottom: 2vh;
 }
 
 .Card {
     background-color: #21252B;
     border-radius: 10px;
     overflow: hidden;
-    margin: 20px;
+    margin-top: 2vh;
+    margin-bottom: 4vh;
     width: 240px;
     transition: 0.3s;
     color: #E5C07B;
@@ -168,7 +184,3 @@ body {
 .CardButton:hover {
     background-color: #D1A75B;
 }
-
-
-
-
