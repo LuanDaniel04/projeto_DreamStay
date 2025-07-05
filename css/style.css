@@ -87,6 +87,12 @@ body {
     font-weight: bold;
     width: 3vw;
     height: 2vh;
+    margin-bottom: 4vh;
+    
+}
+
+.CategoryTitle:hover {
+    color: #E5C07B;
 }
 
 .ContainerCard {
