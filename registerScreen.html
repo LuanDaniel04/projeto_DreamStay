@@ -12,24 +12,24 @@
     <nav class="navbar">
         <a href="index.html"><img src="assets/img/Logo2.png" alt="Logo" class="Logo"></a>
         <div class="RegisterDiv">
-            <button class="LoginButton" onclick="window.location.href='login.html'" >Login</button>
+            <button class="LoginButton" onclick="window.location.href='loginScreen.html'" >Login</button>
         </div>
     </nav>
     
     <div class="ContainerScreen">
         <div class="ContainerFR">
-        <form action="#" class="Form">
+        <form action="register.php" class="Form" method="POST">
                <div class="Title">
                 <h1>Register</h1>
                </div>
-            <label for="">Name</label>
+            <label for="name">Name</label>
             <input type="text" placeholder="Ex: Arthur Leywin">
-            <label for="">E-mail</label>
-            <input type="text" placeholder="Ex: YourEmail@gmail.com">
-            <label for="">Password</label>
-            <input type="text" placeholder="Write your Password">
-            <label for="">Confirm Password</label>
-            <input type="text" placeholder="Confirm your Password">
+            <label for="email">E-mail</label>
+            <input type="text" placeholder="Ex: YourEmail@gmail.com" required>
+            <label for="password">Password</label>
+            <input type="password" placeholder="Write your Password" name="senha" required>
+            <label for="confirmPass">Confirm Password</label>
+            <input type="password" placeholder="Confirm your Password" required>
 
             <input type="submit" value="Register" class="Confirm">
 
