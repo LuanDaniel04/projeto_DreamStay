@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12/07/2025 às 03:03
+-- Tempo de geração: 13/07/2025 às 01:09
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -24,6 +24,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `anuncios`
+--
+
+CREATE TABLE `anuncios` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `localizacao` varchar(255) NOT NULL,
+  `preco` decimal(10,2) DEFAULT NULL,
+  `avaliacao` varchar(255) DEFAULT NULL,
+  `imagem` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `anuncios`
+--
+
+INSERT INTO `anuncios` (`id`, `nome`, `localizacao`, `preco`, `avaliacao`, `imagem`) VALUES
+(1, 'Barra Da Tijuca', 'Rio de Janeiro -RJ', 1500.00, 'teste', 'uploads/6872e4210f742.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `register`
 --
 
@@ -40,12 +62,17 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'asta', 'asta@staria', '123456', 'admin'),
-(2, '', '', '', 'visitante');
+(3, 'Vinicius Bueno', 'teste@teste.com', '123456', 'admin');
 
 --
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `anuncios`
+--
+ALTER TABLE `anuncios`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `register`
@@ -59,10 +86,16 @@ ALTER TABLE `register`
 --
 
 --
+-- AUTO_INCREMENT de tabela `anuncios`
+--
+ALTER TABLE `anuncios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de tabela `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
