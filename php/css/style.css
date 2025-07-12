@@ -1,0 +1,181 @@
+/* Fixar footer no final da página mesmo com pouco conteúdo */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  background-color: #0d1b2a;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+}
+
+
+.card.hotel-card {
+  background-color: #1b263b;
+  border: none;
+  border-radius: 10px;
+  margin: 0 7.5px;
+  width: 280px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.card.hotel-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
+
+.card.hotel-card img {
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  flex-shrink: 0;
+}
+
+.card-body {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.card-title {
+  min-height: 3em;
+  overflow: hidden;
+  color: #fff !important;
+}
+
+.card-text {
+  min-height: 2.5em;
+  overflow: hidden;
+  color: #fff !important;
+}
+
+.avaliacao-text {
+  color: #ffffff;
+  font-size: 0.9rem;
+  margin: 2px 0;
+}
+
+.local-text {
+  color: #a9cce3;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.cancelamento-text {
+  color: #7CFC00 !important;
+  font-size: 0.9rem;
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+.btn-oferta {
+  background-color: red;
+  color: white;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-weight: bold;
+  margin: 8px auto;
+  display: block;
+  width: 80%;
+  text-align: center;
+}
+
+.btn-info {
+  color: #fff !important;
+  margin-top: 8px;
+}
+
+.text-danger {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #ff5e5e !important;
+}
+
+.carousel-viewport {
+  overflow: hidden;
+  width: 900px;
+  margin: 0 auto;
+}
+
+#carouselInner {
+  gap: 15px;
+  transition: transform 0.5s ease;
+  will-change: transform;
+  display: flex;
+  align-items: stretch;
+}
+
+#prevBtn, #nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(0,0,0,0.7);
+  cursor: pointer;
+  border: none;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+#prevBtn:hover, #nextBtn:hover {
+  background-color: rgba(255,255,255,1);
+}
+
+#prevBtn {
+  left: -60px;
+}
+
+#nextBtn {
+  right: -60px;
+}
+
+#prevBtn .carousel-control-prev-icon,
+#nextBtn .carousel-control-next-icon {
+  filter: invert(15%) sepia(100%) saturate(600%) hue-rotate(180deg) brightness(85%) contrast(85%);
+  width: 24px;
+  height: 24px;
+}
+
+/* Footer normal, não fixo para evitar sobreposição */
+
+footer {
+  background-color: #212529;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
+  margin-top: 40px;
+}
+
+footer img {
+  margin-bottom: 10px;
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+

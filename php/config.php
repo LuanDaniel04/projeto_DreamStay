@@ -2,7 +2,7 @@
 
 //Dados para conexão
 $host = "localhost";
-$user = "hoot";
+$user = "root";
 $pass = "";
 $db = "dreamstay"; //Alterar apos o vini concluir o banco
 

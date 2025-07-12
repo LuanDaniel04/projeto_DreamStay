@@ -1,28 +1,59 @@
-<?php
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DreamStay - Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <!-- Navbar igual -->
+  <nav class="navbar navbar-dark bg-dark p-3">
+    <div class="container-fluid d-flex align-items-center gap-3">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
+        <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
+        DreamStay
+      </a>
+      <div class="d-flex mx-auto" style="max-width: 420px; width: 100%;">
+        <input class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
+        <button class="btn btn-danger ms-2">Buscar</button>
+      </div>
+      <button class="btn btn-primary" onclick="location.href='cadastro.php'">Cadastrar</button>
+    </div>
+  </nav>
 
-session_start();
+  <!-- Conteúdo Login -->
+  <div class="main-content">
+    <div class="container" style="max-width: 400px; margin-top: 6rem;">
+      <h3 class="mb-4 text-center">Login</h3>
+      <form id="loginForm" action="entrar.php" method="post">
+        <div class="mb-3">
+          <label for="emailInput" class="form-label">E-mail</label>
+          <input type="email" class="form-control" id="emailInput" name="email" placeholder="seu@email.com" required />
+        </div>
+        <div class="mb-3">
+          <label for="passwordInput" class="form-label">Senha</label>
+          <input type="password" class="form-control" id="passwordInput" name="senha" placeholder="Digite sua senha" required />
+        </div>
+        <button type="submit" class="btn btn-danger w-100">Entrar</button>
+      </form>
+      <p class="text-center mt-3">
+        Não tem uma conta?
+        <a href="cadastro.php">Cadastre-se aqui</a>
+      </p>
+    </div>
+  </div>
 
-include_once("config.php");
+  <!-- Rodapé -->
+  <footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+      <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain; margin-bottom: 10px;" />
+      <div style="opacity: 0.7;">&copy; 2025 DreamStay. Todos os direitos reservados.</div>
+    </div>
+  </footer>
 
-if ($_SERVER["REQUEST_METHOD" == "POST"]) { //Impede que seja acessado direto na url
-
-    // Obtém os dados do formulário
-    $email = $_POST['email'];
-    $senha = $_POST['senha'];
-
-    //consulta o banco de dados
-    $sql = "SELECT * FROM usuarios WHERE email = '" . $email . "' and senha = '" . $senha . "'";
-    $resultado = mysqli_query($conexao, $sql);
-    
- if ($resultado && mysqli_num_rows($resultado) > 0) {
-        $linha = mysqli_fetch_assoc($resultado);
-        
-        // Salva os dados na sessão
-        $_SESSION['email'] = $linha['email'];
-        $_SESSION['tipo'] = $linha['tipo'];
-        
-        header("Location: index.php");
-    }
-}
-
-?>
+  <!-- Scripts Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
