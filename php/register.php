@@ -2,12 +2,15 @@
 session_start();
 include_once("config.php");
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") { //Impede que seja acessado direto na url
+    
 // Obtém os dados do formulário
 $nome = $_POST['nome'];
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 $confirma = $_POST['confirmaSenha'];
 
+// Segunda validação de senha
 if ($senha !== $confirma) {
     echo "As senhas não coincidem";
     header("Location: cadastro.php");
@@ -25,4 +28,6 @@ if (mysqli_query($conn, $sql)) {
     exit;
 } else {
     echo "Erro ao Registrar: " . mysqli_error($conn);
+}
+
 }

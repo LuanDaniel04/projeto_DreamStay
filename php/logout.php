@@ -1,7 +1,8 @@
+//encerra a sessão
 <?php
 session_start();
 $_SESSION = [];
 session_destroy();
-header("Location: register.php");
+header("Location: login.php"); //redireciona para o login
 exit;
 ?>

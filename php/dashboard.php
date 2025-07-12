@@ -8,6 +8,17 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <?php
+  session_start();
+  if (!$_SESSION['email']) {
+    header('Location: login.php');
+      exit;
+  }
+   if (!isset($_SESSION['tipo']) && $_SESSION['tipo'] !== 'admin') {
+    header('Location: login.php');
+  } 
+  ?>
+
   <nav class="navbar navbar-dark bg-dark p-3">
     <div class="container-fluid d-flex align-items-center gap-3">
       <a class="navbar-brand d-flex align-items-center gap-2" href="home.html">
@@ -22,33 +33,29 @@
     <h3 class="mb-4 text-center">Gerenciar Hotéis</h3>
 
     <!-- Formulário para adicionar ou editar hotéis -->
-    <form id="hotelForm" class="mb-5">
-      <input type="hidden" id="hotelId" />
+    <form id="hotelForm" class="mb-5" action="create.php" enctype="multipart/form-data">
       <div class="mb-3">
         <label for="nome" class="form-label">Nome do Hotel</label>
-        <input type="text" class="form-control" id="nome" required />
+        <input type="text" class="form-control" id="nome" name="nome" />
       </div>
       <div class="mb-3">
         <label for="localizacao" class="form-label">Localização</label>
-        <input type="text" class="form-control" id="localizacao" required />
+        <input type="text" class="form-control" id="localizacao" name="localizacao" required />
       </div>
       <div class="mb-3">
         <label for="preco" class="form-label">Preço</label>
-        <input type="number" class="form-control" id="preco" required />
+        <input type="number" class="form-control" id="preco" name="preco" required />
       </div>
       <div class="mb-3">
         <label for="avaliacao" class="form-label">Avaliação</label>
-        <input type="text" class="form-control" id="avaliacao" placeholder="Ex: 9.5 - Excelente" required />
+        <input type="text" class="form-control" id="avaliacao" name="avaliacao" placeholder="Ex: 9.5 - Excelente" required />
       </div>
       <div class="mb-3">
         <label for="imagem" class="form-label">Imagem</label>
-        <input type="file" class="form-control" id="avaliacao" required />
+        <input type="file" class="form-control" id="avaliacao" name="imagem" required />
       </div>
       <button type="submit" class="btn btn-success w-100">Salvar Hotel</button>
     </form>
-
-    <!-- Lista de hotéis cadastrados -->
-    <div id="listaHoteis" class="row g-4"></div>
   </div>
 
   <!-- Rodapé -->
