@@ -252,7 +252,14 @@ session_start();
 
 
   <!-- Scripts -->
+
+    <!-- Pega os dados do php e envia para o js -->
+   <script>
+   const HOTEL_API_URL = "anuncios.php";
+   </script>
+   <!-- Js do bootstrap -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- JS do carousel -->
   <script src="js/carousel.js"></script>
 </body>
 </html>

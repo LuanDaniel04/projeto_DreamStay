@@ -53,6 +53,14 @@
       <div class="mb-3">
         <label for="imagem" class="form-label">Imagem</label>
         <input type="file" class="form-control" id="imagem" name="imagem" required />
+
+        <!-- Imagens Extras em desenvolvimento
+        <label for="imagem" class="form-label">Imagem</label>
+        <input type="file" class="form-control" id="imagem" name="imagem" required />
+        <label for="imagem" class="form-label">Imagem</label>
+        <input type="file" class="form-control" id="imagem" name="imagem" required /> 
+        -->
+
       </div>
       <button type="submit" class="btn btn-success w-100">Salvar Hotel</button>
     </form>

@@ -1,63 +1,19 @@
-const cardsData = [
-  {
-    title: "Hotel Copacabana",
-    rating: "8.9 - Excelente (232)",
-    location: "Rio de Janeiro",
-    offerText: "Por pouco tempo!",
-    price: "R$ 398",
-    images: ["assets/imagem1.jpg", "assets/imagem2.jpeg"]
-  },
-  {
-    title: "Hotel Lago Negro",
-    rating: "9.4 - Excelente (632)",
-    location: "Gramado",
-    offerText: "Por pouco tempo!",
-    price: "R$ 653",
-    images: ["assets/imagem3.jpeg", "assets/imagem1.jpg"]
-  },
-  {
-    title: "Hotel Morro da Cruz",
-    rating: "1.9 - Péssimo (32)",
-    location: "Porto Alegre",
-    offerText: "Por pouco tempo!",
-    price: "R$ 199",
-    images: ["assets/imagem3.jpeg", "assets/imagem2.jpeg"]
-  },
-  {
-    title: "Hotel das Águas",
-    rating: "9.1 - Excelente (412)",
-    location: "Caldas Novas",
-    offerText: "Oferta exclusiva!",
-    price: "R$ 420",
-    images: ["assets/imagem1.jpg", "assets/imagem3.jpeg"]
-  },
-  {
-    title: "Pousada do Sol",
-    rating: "8.0 - Muito bom (290)",
-    location: "Fortaleza",
-    offerText: "Últimas vagas!",
-    price: "R$ 310",
-    images: ["assets/imagem2.jpeg", "assets/imagem1.jpg"]
-  },
-  {
-    title: "Hotel Aurora",
-    rating: "9.7 - Incrível (912)",
-    location: "Campos do Jordão",
-    offerText: "Recomendado!",
-    price: "R$ 758",
-    images: ["assets/imagem1.jpg", "assets/imagem2.jpeg"]
-  }
-];
-
-const visibleCount = 3;
+// Configurações do carrossel
+const MAX_VISIBLE = 5;  // Máximo de cards visíveis por vez
 const cardWidthWithGap = 280 + 15;
+
+// Pega os elementos do html
 const carouselInner = document.getElementById("carouselInner");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 
+// Variáveis
+let cardsData = [];
+let visibleCount = 0;
 let startIndex = 0;
 let isAnimating = false;
 
+// Função para criar as imagens de cada card
 function createCarouselInnerHTML(images, index) {
   let inner = images
     .map((img, i) => `
@@ -81,6 +37,7 @@ function createCarouselInnerHTML(images, index) {
   `;
 }
 
+// Função para criar cada card
 function createCardHTML(card, index) {
   return `
     <div class="card hotel-card">
@@ -98,19 +55,26 @@ function createCardHTML(card, index) {
   `;
 }
 
+// Função que renderiza os cards visíveis no carrossel
 function renderCards() {
+  
+  //Define o numero de cards exibidos
+  visibleCount = Math.min(MAX_VISIBLE, cardsData.length);
+
   const cardsToRender = [];
   for (let i = 0; i < visibleCount; i++) {
     const idx = (startIndex + i) % cardsData.length;
     cardsToRender.push(cardsData[idx]);
   }
+
   carouselInner.innerHTML = cardsToRender
     .map((card, i) => createCardHTML(card, (startIndex + i) % cardsData.length))
-    .join("");
+    .join('');
 }
 
+// Função para controlar o deslizamento do carrossel
 function slide(direction) {
-  if (isAnimating) return;
+  if (isAnimating || cardsData.length === 0) return;
   isAnimating = true;
 
   const moveDistance = cardWidthWithGap;
@@ -119,25 +83,32 @@ function slide(direction) {
   carouselInner.style.transition = "transform 0.5s ease";
   carouselInner.style.transform = `translateX(${translateXValue}px)`;
 
-  carouselInner.addEventListener(
-    "transitionend",
-    () => {
-      carouselInner.style.transition = "none";
-      carouselInner.style.transform = `translateX(0)`;
+  carouselInner.addEventListener("transitionend", () => {
+    carouselInner.style.transition = "none";
+    carouselInner.style.transform = `translateX(0)`;
 
-      if (direction === "next") {
-        startIndex = (startIndex + 1) % cardsData.length;
-      } else {
-        startIndex = (startIndex - 1 + cardsData.length) % cardsData.length;
-      }
+    if (direction === "next") {
+      startIndex = (startIndex + 1) % cardsData.length;
+    } else {
+      startIndex = (startIndex - 1 + cardsData.length) % cardsData.length;
+    }
 
-      renderCards();
-      isAnimating = false;
-    },
-    { once: true }
-  );
+    renderCards();
+    isAnimating = false;
+  }, { once: true });
 }
 
+// Eventos dos botões de navegação
 prevBtn.addEventListener("click", () => slide("prev"));
 nextBtn.addEventListener("click", () => slide("next"));
-renderCards();
+
+//Recebe os dados do servidor
+fetch("anuncios.php")
+  .then(res => res.json())
+  .then(data => {
+    cardsData = data;
+    renderCards();
+  })
+  .catch(err => {
+    console.error("Erro ao carregar os hotéis:", err);
+  });
