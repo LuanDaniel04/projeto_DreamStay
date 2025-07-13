@@ -49,7 +49,12 @@ function createCardHTML(card, index) {
         <p class="btn-oferta">${card.offerText}</p>
         <p class="cancelamento-text">Cancelamento gratuito</p>
         <h5 class="text-danger">${card.price}</h5>
-        <a href="#" class="btn btn-info">Conferir oferta</a>
+
+        <form action="detalhes.php" method="post">
+          <input type="hidden" name="id" value="${card.id}">
+          <button type="submit" class="btn btn-info">Ver Detalhes</button>
+        </form>
+
       </div>
     </div>
   `;

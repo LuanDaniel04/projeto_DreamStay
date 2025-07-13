@@ -1,6 +1,8 @@
 <?php
+session_start();
 include_once('config.php');
 
+if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 //Obtem os dados do formulario
 $nome = $_POST['nome'];
 $locate = $_POST['localizacao'];
@@ -30,4 +32,7 @@ $sql = "INSERT INTO anuncios (nome, localizacao, preco, avaliacao, imagem)
  } else {
     echo "Erro ao Salvar: " . mysqli_error($conn);
  }
+}
+
+mysqli_close($conn);
 ?>

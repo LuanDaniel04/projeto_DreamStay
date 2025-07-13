@@ -10,6 +10,7 @@ $resultado = mysqli_query($conn, $sql);
 if ($resultado && mysqli_num_rows($resultado) > 0) {
   while ($row = mysqli_fetch_assoc($resultado)) {
     $cards[] = [
+      "id" => $row["id"],
       "title" => $row["nome"],
       "rating" => $row["avaliacao"],
       "location" => $row["localizacao"],
@@ -24,5 +25,7 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     http_response_code(500);
     echo json_encode(["erro" => "Erro na consulta SQL ou nenhum dado encontrado"]);
 }
+
+mysqli_close($conn);
 
 ?>

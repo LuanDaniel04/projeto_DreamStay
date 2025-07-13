@@ -1,2 +1,4 @@
-Para utilizar completamente o projeto, é necessário se registrar. Após ter um registro salvo no banco de dados, use o seguinte comando:
-UPDATE register SET tipo = 'admin' WHERE id = 1;
+Para ter acesso a todo o projeto utilize o seguinte usuario:
+
+Email: admin@admin.com
+Senha: 123456

@@ -15,4 +15,5 @@ if (!$conn) {
     die("Falha na conexão".mysqli_connect_error());
 }
 
+mysqli_set_charset($conn, "utf8"); //usado para suportar caracteres especiais
 ?>

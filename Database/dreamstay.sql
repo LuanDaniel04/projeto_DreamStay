@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 13/07/2025 às 01:09
+-- Tempo de geração: 13/07/2025 às 21:15
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -36,13 +36,6 @@ CREATE TABLE `anuncios` (
   `imagem` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `anuncios`
---
-
-INSERT INTO `anuncios` (`id`, `nome`, `localizacao`, `preco`, `avaliacao`, `imagem`) VALUES
-(1, 'Barra Da Tijuca', 'Rio de Janeiro -RJ', 1500.00, 'teste', 'uploads/6872e4210f742.jpg');
-
 -- --------------------------------------------------------
 
 --
@@ -62,7 +55,7 @@ CREATE TABLE `register` (
 --
 
 INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(3, 'Vinicius Bueno', 'teste@teste.com', '123456', 'admin');
+(1, 'Adm', 'admin@admin.com', '123456', 'admin');
 
 --
 -- Índices para tabelas despejadas
@@ -89,13 +82,13 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
