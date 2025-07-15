@@ -1,5 +1,5 @@
 // Configurações do carrossel
-const MAX_VISIBLE = 5;  // Máximo de cards visíveis por vez
+const MAX_VISIBLE = 3;  // Máximo de cards visíveis por vez
 const cardWidthWithGap = 280 + 15;
 
 // Pega os elementos do html
@@ -107,13 +107,6 @@ function slide(direction) {
 prevBtn.addEventListener("click", () => slide("prev"));
 nextBtn.addEventListener("click", () => slide("next"));
 
-//Recebe os dados do servidor
-fetch("anuncios.php")
-  .then(res => res.json())
-  .then(data => {
-    cardsData = data;
-    renderCards();
-  })
-  .catch(err => {
-    console.error("Erro ao carregar os hotéis:", err);
-  });
+
+ window.createCardHTML = createCardHTML;
+

@@ -18,7 +18,7 @@ body {
   flex: 1;
 }
 
-
+/* Card padrão do index */
 .card.hotel-card {
   background-color: #1b263b;
   border: none;
@@ -179,3 +179,193 @@ footer img {
   object-fit: contain;
 }
 
+/* estilo para os cards da lista de administradores */
+/* Card exclusivo do painel administrativo */
+.admin-hotel-card {
+  background-color: #1f2d3d; /* tom mais escuro e limpo */
+  color: #f0f0f0;
+  border: 1px solid #2f3e4e;
+  font-size: 0.92rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-hotel-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.6);
+}
+
+.admin-hotel-card .card-title {
+  font-size: 1.1rem;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.admin-hotel-card .card-text {
+  font-size: 0.9rem;
+  color: #d1d1d1;
+}
+
+.admin-hotel-card .btn {
+  font-size: 0.85rem;
+  padding: 6px 10px;
+}
+
+/* --- Estilo específico para card detalhes --- */
+.card.hotel-card.hotel-card-detalhes {
+  background-color: #22303c;  /* azul escuro mais suave */
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  width: 100%;
+  margin: 40px auto 60px auto;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  color: #e1e8f0;
+}
+
+/* Imagem do hotel na lateral esquerda */
+.card.hotel-card.hotel-card-detalhes img {
+  width: 45%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.35);
+  flex-shrink: 0;
+}
+
+/* Corpo do card na lateral direita */
+.card.hotel-card.hotel-card-detalhes .card-body {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: left;
+  color: #f5f8fa;
+}
+
+/* Título maior e com espaçamento */
+.card.hotel-card.hotel-card-detalhes .card-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #f0f4f8;
+}
+
+/* Parágrafos de avaliação, localização, preço */
+.avaliacao-text,
+.local-text,
+.text-danger {
+  font-size: 1.1rem;
+  margin: 6px 0;
+}
+
+.avaliacao-text {
+  color: #ffdd57; /* amarelo suave para avaliação */
+  font-weight: 600;
+}
+
+.local-text {
+  color: #a0b9d6;
+  font-style: italic;
+}
+
+.text-danger {
+  color: #ff6b6b !important; /* vermelho mais suave */
+  font-weight: 700;
+  margin-top: 12px;
+}
+
+/* Linha divisória */
+.card.hotel-card.hotel-card-detalhes hr {
+  border-color: #3b4a61;
+  margin: 20px 0;
+}
+
+/* Descrição com scroll quando muito longa */
+.card.hotel-card.hotel-card-detalhes .card-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #cfd8dc;
+  max-height: 140px;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Botões edit e delete lado a lado com espaçamento */
+.card.hotel-card.hotel-card-detalhes .btn-group {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+
+.card.hotel-card.hotel-card-detalhes .btn {
+  padding: 10px 22px;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.25s ease;
+  cursor: pointer;
+}
+
+/* Botão editar com cor azul suave */
+.card.hotel-card.hotel-card-detalhes .btn-primary {
+  background-color: #4a90e2;
+  border: none;
+}
+
+.card.hotel-card.hotel-card-detalhes .btn-primary:hover {
+  background-color: #357ABD;
+}
+
+/* Botão deletar vermelho suave */
+.card.hotel-card.hotel-card-detalhes .btn-danger {
+  background-color: #e94f4f;
+  border: none;
+}
+
+.card.hotel-card.hotel-card-detalhes .btn-danger:hover {
+  background-color: #c0392b;
+}
+
+/* Container do botão voltar */
+.container.text-center.mt-4.mb-5 a.btn-secondary {
+  padding: 10px 26px;
+  font-size: 1rem;
+  border-radius: 8px;
+  background-color: #556a82;
+  border: none;
+  transition: background-color 0.3s ease;
+  color: #f5f8fa;
+  text-decoration: none;
+}
+
+.container.text-center.mt-4.mb-5 a.btn-secondary:hover {
+  background-color: #3b4a61;
+}
+
+/* Footer */
+
+footer.bg-dark {
+  background-color: #1b2838;
+  color: #b0bec5;
+  padding: 30px 0;
+  text-align: center;
+  margin-top: 60px;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+}
+
+footer.bg-dark img {
+  margin-bottom: 15px;
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+.aviso-sem-anuncio {
+  color: #b84d4d; /* Por exemplo, a cor text-muted do Bootstrap */
+  font-style: italic;
+  
+  padding: 1rem 0;
+}
