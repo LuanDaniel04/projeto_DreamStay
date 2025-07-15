@@ -8,24 +8,23 @@ if (!isset($_SESSION['id'])) {
     exit;
 }
 
-$id = $_POST['id'] ?? null;
-if (!$id) {
-    echo "Hotel inválido.";
-    exit;
-}
-
+$id = $_POST['id'];
 $usuario_id_logado = $_SESSION['id'];
 
-// Busca o hotel com query direta e verifica dono
-$sql = "SELECT * FROM anuncios WHERE id = $id AND usuario_id = $usuario_id_logado";
-$result = mysqli_query($conn, $sql);
+// Busca o hotel, garantindo que ele pertença ao usuário logado
+$stmt = $conn->prepare("SELECT * FROM anuncios WHERE id = ? AND usuario_id = ?");
+$stmt->bind_param("ii", $id, $usuario_id_logado);
+$stmt->execute();
+$result = $stmt->get_result();
 
-if (!$result || mysqli_num_rows($result) === 0) {
+if ($result->num_rows === 0) {
     echo "Hotel não encontrado ou acesso negado.";
     exit;
 }
 
-$row = mysqli_fetch_assoc($result);
+$row = $result->fetch_assoc();
+$stmt->close();
+$conn->close();
 
 // Lista das possíveis tags/etiquetas
 $opcoes_tags = [
@@ -36,8 +35,6 @@ $opcoes_tags = [
 
 // Pega as tags salvas no banco (string separada por vírgula)
 $tags_selecionadas = explode(',', $row['tags'] ?? '');
-
-mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -87,7 +84,7 @@ mysqli_close($conn);
     </div>
 
     <div class="mb-3">
-      <label for="imagem_atual" class="form-label">Imagem Atual:</label><br />
+      <label for="imagem" class="form-label">Imagem Atual:</label><br />
       <img src="<?= htmlspecialchars($row['imagem']) ?>" alt="Imagem do hotel" style="max-width: 200px; height: auto;" />
     </div>
 

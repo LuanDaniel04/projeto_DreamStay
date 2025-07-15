@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Senha simples (não recomendado, mas ok para curso)
         if ($senha === $dados['senha']) {
-            $_SESSION['id'] = $dados['id'];          // Importante para o dashboard!
+            $_SESSION['id'] = $dados['id'];          
             $_SESSION['email'] = $dados['email'];
             $_SESSION['tipo'] = $dados['tipo'];
 

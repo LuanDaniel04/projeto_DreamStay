@@ -15,7 +15,8 @@
   <div class="container-fluid d-flex align-items-center gap-3">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
       <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
-      DreamStay
+      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
+      
     </a>
     <div class="d-flex mx-auto" style="max-width: 420px; width: 100%;">
       <input id="campoBusca" class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
@@ -23,7 +24,7 @@
     </div>
     <?php
       if (isset($_SESSION['email'])) {
-        echo '<button class="btn btn-danger" onclick="location.href=\'logout.php\'">Sair</button>';
+        echo '<button class="btn btn-danger" id="custom" onclick="location.href=\'perfil.php\'">Perfil</button>';
         if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'admin') {
           echo '<button class="btn btn-danger" onclick="location.href=\'dashboard.php\'">Anunciar</button>';
         }

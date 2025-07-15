@@ -44,6 +44,7 @@ function createCardHTML(card, index) {
       ${createCarouselInnerHTML(card.images, index)}
       <div class="card-body">
         <h5 class="card-title">${card.title}</h5>
+        <p class="creator-name"><strong>Criado por:</strong> ${card.creatorName}</p>
         <p class="avaliacao-text"><strong>Avaliação:</strong> ${card.rating}</p>
         <p class="local-text">${card.location}</p>
         <p class="btn-oferta">${card.offerText}</p>

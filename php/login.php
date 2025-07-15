@@ -40,7 +40,9 @@
       </form>
       <p class="text-center mt-3">
         Não tem uma conta?
-        <a href="cadastro.php">Cadastre-se aqui</a>
+        <a href="cadastro.php">Cadastre-se aqui</a><br><br>
+        Esqueceu sua senha? 
+        <a href="senha.php">Clique aqui</a>
       </p>
     </div>
   </div>
