@@ -46,7 +46,7 @@ mysqli_close($conn);
   <div class="container-fluid d-flex align-items-center gap-3">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
       <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
-      DreamStay
+      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
     </a>
     <button class="btn btn-light ms-auto" onclick="location.href='dashboard.php'">Voltar</button>
   </div>
