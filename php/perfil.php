@@ -36,6 +36,7 @@ if ($result && mysqli_num_rows($result) > 0) {
 
   <p><a href="logout.php">Sair da Conta</a></p>
   <p><a href="editar_usuario.php">Editar dados</a></p>
+  <p><a href="favoritos.php">Favoritos</a></p>
 
 </body>
 </html>

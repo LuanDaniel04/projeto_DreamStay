@@ -8,8 +8,7 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-
-<?php session_start(); ?>
+<?php session_start();?>
 
 <nav class="navbar navbar-dark bg-dark p-3">
   <div class="container-fluid d-flex align-items-center gap-3">
