@@ -21,7 +21,7 @@
 
 <!-- Formulário de atualização de senha -->
 <div class="container" style="max-width: 400px; margin-top: 6rem;">
-  <h3 class="mb-4 text-center">Atualizar Senha</h3>
+  <h3 class="mb-4 text-center">Esqueci minha Senha</h3>
   <form action="upd_senha.php" method="post">
     <div class="mb-3">
       <label for="email" class="form-label">E-mail</label>
@@ -38,7 +38,7 @@
       <input type="password" class="form-control" id="confirmarSenha" name="verifica_senha" placeholder="Confirme sua senha" required>
     </div>
 
-    <button type="submit" class="btn btn-danger w-100">Atualizar Senha</button>
+    <button type="submit" class="btn btn-danger w-100">Confirmar nova senha</button>
   </form>
 </div>
 
