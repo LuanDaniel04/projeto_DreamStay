@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 15/07/2025 às 15:57
+-- Tempo de geração: 16/07/2025 às 18:08
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,8 +44,27 @@ CREATE TABLE `anuncios` (
 --
 
 INSERT INTO `anuncios` (`id`, `usuario_id`, `nome`, `localizacao`, `preco`, `avaliacao`, `descricao`, `imagem`, `tags`) VALUES
-(23, 1, 'Beira rio', 'Viamao', 123.00, '9.2 - ótimo', 'asdsad', 'uploads/68765bacd5464.jpeg', 'ofertas imperdiveis'),
-(24, 1, 'Dedo do meio', 'porto alegre', 123.00, '9.2 - ótimo', 'asdasd', 'uploads/68765dd68fe0a.jpeg', 'talvez voce goste');
+(25, 1, 'Beira rio', 'porto alegre', 12.00, '9.8 - ótima', 'asdasd', 'uploads/68778f3076373.jpg', 'melhores avaliados,talvez voce goste');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `favoritos`
+--
+
+CREATE TABLE `favoritos` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `hotel_id` int(11) NOT NULL,
+  `data_favorito` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `favoritos`
+--
+
+INSERT INTO `favoritos` (`id`, `usuario_id`, `hotel_id`, `data_favorito`) VALUES
+(3, 7, 25, '2025-07-16 16:02:10');
 
 -- --------------------------------------------------------
 
@@ -58,17 +77,19 @@ CREATE TABLE `register` (
   `nome` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL,
-  `tipo` enum('admin','visitante') NOT NULL DEFAULT 'visitante'
+  `tipo` enum('admin','visitante') NOT NULL DEFAULT 'visitante',
+  `foto_perfil` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `register`
 --
 
-INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
-(1, 'Adm', 'admin@admin.com', '123456', 'admin'),
-(5, 'Paulo Henrique Silva da Silva', 'teste@teste.com', '123456', 'visitante'),
-(6, 'Paulo Henrique Silva da Silva', 'email@email.com', '123456', 'visitante');
+INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`, `foto_perfil`) VALUES
+(1, 'Adm', 'admin@admin.com', '123456', 'admin', 'uploads/68779d6846ebc_entrada.jpg'),
+(5, 'Paulo Henrique Silva da Silva', 'teste@teste.com', '123456', 'visitante', NULL),
+(6, 'Paulo Henrique Silva da Silva', 'email@email.com', '123456', 'visitante', NULL),
+(7, 'Paulo Henrique Silva da Silva', 'paullohsds@gmail.com', '123456', 'visitante', NULL);
 
 --
 -- Índices para tabelas despejadas
@@ -80,6 +101,13 @@ INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
 ALTER TABLE `anuncios`
   ADD PRIMARY KEY (`id`),
   ADD KEY `idx_usuario_id` (`usuario_id`);
+
+--
+-- Índices de tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario_id` (`usuario_id`,`hotel_id`);
 
 --
 -- Índices de tabela `register`
@@ -96,13 +124,19 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de tabela `favoritos`
+--
+ALTER TABLE `favoritos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `register`
 --
 ALTER TABLE `register`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restrições para tabelas despejadas

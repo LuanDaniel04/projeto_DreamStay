@@ -11,27 +11,41 @@
 <?php session_start();?>
 
 <nav class="navbar navbar-dark bg-dark p-3">
-  <div class="container-fluid d-flex align-items-center gap-3">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
+  <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap gap-3">
+    <!-- Logo -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.php" style="min-width: 210px;">
       <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
       <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
-      
     </a>
-    <div class="d-flex mx-auto" style="max-width: 420px; width: 100%;">
+
+    <!-- Busca centralizada -->
+    <form class="d-flex flex-grow-1 mx-3" role="search" style="max-width: 500px; min-width: 250px;">
       <input id="campoBusca" class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
-      <button id="botaoBusca" class="btn btn-danger ms-2">Buscar</button>
-    </div>
-    <?php
-      if (isset($_SESSION['email'])) {
-        echo '<button class="btn btn-danger" id="custom" onclick="location.href=\'perfil.php\'">Perfil</button>';
-        if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'admin') {
-          echo '<button class="btn btn-danger" onclick="location.href=\'dashboard.php\'">Anunciar</button>';
+      <button id="botaoBusca" class="btn btn-danger ms-2 px-4">Buscar</button>
+    </form>
+
+    <!-- Botões Perfil, Sair e Anunciar -->
+    <div class="d-flex gap-2 flex-shrink-0 align-items-center">
+      <?php 
+        if (isset($_SESSION['email'])) {
+          if (isset($_SESSION['tipo']) && $_SESSION['tipo'] === 'admin') {
+            // Admin: botão Perfil e botão Anunciar
+            echo '<button class="btn btn-danger" onclick="location.href=\'perfil.php\'">Perfil</button>';
+            echo '<button class="btn btn-danger" onclick="location.href=\'dashboard.php\'">Anunciar</button>';
+            // Opcional: colocar logout fora ou em outra página para admins
+          } else {
+            // Usuário normal: botão Perfil e botão Sair lado a lado
+           echo '<button class="btn btn-danger px-4" onclick="location.href=\'perfil.php\'">Perfil</button>';
+           echo '<button class="btn btn-danger px-4" onclick="location.href=\'logout.php\'">Sair</button>';
+
+          }
+        } else {
+          // Não logado: Entrar e Cadastrar
+          echo '<button class="btn btn-primary" onclick="location.href=\'login.php\'">Entrar</button>';
+          echo '<button class="btn btn-primary" onclick="location.href=\'cadastro.php\'">Cadastrar</button>';
         }
-      } else {
-        echo '<button class="btn btn-primary" onclick="location.href=\'login.php\'">Entrar</button>';
-        echo '<button class="btn btn-primary" onclick="location.href=\'cadastro.php\'">Cadastrar</button>';
-      }
-    ?>
+      ?>
+    </div>
   </div>
 </nav>
 

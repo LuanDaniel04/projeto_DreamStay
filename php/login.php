@@ -8,20 +8,17 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <!-- Navbar igual -->
+
+
   <nav class="navbar navbar-dark bg-dark p-3">
-    <div class="container-fluid d-flex align-items-center gap-3">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
-        <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
-        <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
-      </a>
-      <div class="d-flex mx-auto" style="max-width: 420px; width: 100%;">
-        <input class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
-        <button class="btn btn-danger ms-2">Buscar</button>
-      </div>
-      <button class="btn btn-primary" onclick="location.href='cadastro.php'">Cadastrar</button>
-    </div>
-  </nav>
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
+      <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
+      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
+    </a>
+  </div>
+</nav>
+
 
   <!-- Conteúdo Login -->
   <div class="main-content">

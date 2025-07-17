@@ -1,5 +1,5 @@
-/* Fixar footer no final da página mesmo com pouco conteúdo */
-html, body {
+Fixar footer no final da página mesmo com pouco conteúdo
+ body {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -110,6 +110,7 @@ body {
   color: #ff5e5e !important;
 }
 
+/* Carousel */
 .carousel-viewport {
   overflow: hidden;
   width: 900px;
@@ -161,28 +162,38 @@ body {
   height: 24px;
 }
 
-/* Footer normal, não fixo para evitar sobreposição */
-
-footer {
-  background-color: #212529;
-  color: white;
-  padding: 20px 0;
+/* Footer padrão */
+footer, footer.bg-dark {
+  background-color: #1b2838;
+  color: #b0bec5;
+  padding: 30px 0;
   text-align: center;
-  box-shadow: 0 -2px 8px rgba(0,0,0,0.5);
-  margin-top: 40px;
+  margin-top: 60px;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
 }
 
-footer img {
-  margin-bottom: 10px;
-  width: 60px;
-  height: 60px;
+footer img, footer.bg-dark img {
+  margin-bottom: 15px;
+  width: 70px;
+  height: 70px;
   object-fit: contain;
 }
 
-/* estilo para os cards da lista de administradores */
-/* Card exclusivo do painel administrativo */
+/* Aviso sem anúncio */
+.aviso-sem-anuncio {
+  color: #b84d4d;
+  font-style: italic;
+  padding: 1rem 0;
+}
+
+/* Estilo hover para logo */
+.DreamStay1:hover {
+  background-image: url("assets/DreamStay1.png");
+}
+
+/* ======== Cartões do Admin ======== */
 .admin-hotel-card {
-  background-color: #1f2d3d; /* tom mais escuro e limpo */
+  background-color: #1f2d3d;
   color: #f0f0f0;
   border: 1px solid #2f3e4e;
   font-size: 0.92rem;
@@ -211,9 +222,9 @@ footer img {
   padding: 6px 10px;
 }
 
-/* --- Estilo específico para card detalhes --- */
+/* ======== Card Detalhes ======== */
 .card.hotel-card.hotel-card-detalhes {
-  background-color: #22303c;  /* azul escuro mais suave */
+  background-color: #22303c;
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
@@ -226,7 +237,6 @@ footer img {
   color: #e1e8f0;
 }
 
-/* Imagem do hotel na lateral esquerda */
 .card.hotel-card.hotel-card-detalhes img {
   width: 45%;
   height: auto;
@@ -236,7 +246,6 @@ footer img {
   flex-shrink: 0;
 }
 
-/* Corpo do card na lateral direita */
 .card.hotel-card.hotel-card-detalhes .card-body {
   width: 55%;
   display: flex;
@@ -246,7 +255,6 @@ footer img {
   color: #f5f8fa;
 }
 
-/* Título maior e com espaçamento */
 .card.hotel-card.hotel-card-detalhes .card-title {
   font-size: 2rem;
   font-weight: 700;
@@ -254,37 +262,11 @@ footer img {
   color: #f0f4f8;
 }
 
-/* Parágrafos de avaliação, localização, preço */
-.avaliacao-text,
-.local-text,
-.text-danger {
-  font-size: 1.1rem;
-  margin: 6px 0;
-}
-
-.avaliacao-text {
-  color: #ffdd57; /* amarelo suave para avaliação */
-  font-weight: 600;
-}
-
-.local-text {
-  color: #a0b9d6;
-  font-style: italic;
-}
-
-.text-danger {
-  color: #ff6b6b !important; /* vermelho mais suave */
-  font-weight: 700;
-  margin-top: 12px;
-}
-
-/* Linha divisória */
 .card.hotel-card.hotel-card-detalhes hr {
   border-color: #3b4a61;
   margin: 20px 0;
 }
 
-/* Descrição com scroll quando muito longa */
 .card.hotel-card.hotel-card-detalhes .card-text {
   font-size: 1rem;
   line-height: 1.5;
@@ -294,7 +276,6 @@ footer img {
   padding-right: 10px;
 }
 
-/* Botões edit e delete lado a lado com espaçamento */
 .card.hotel-card.hotel-card-detalhes .btn-group {
   display: flex;
   gap: 20px;
@@ -310,7 +291,6 @@ footer img {
   cursor: pointer;
 }
 
-/* Botão editar com cor azul suave */
 .card.hotel-card.hotel-card-detalhes .btn-primary {
   background-color: #4a90e2;
   border: none;
@@ -320,7 +300,6 @@ footer img {
   background-color: #357ABD;
 }
 
-/* Botão deletar vermelho suave */
 .card.hotel-card.hotel-card-detalhes .btn-danger {
   background-color: #e94f4f;
   border: none;
@@ -330,7 +309,7 @@ footer img {
   background-color: #c0392b;
 }
 
-/* Container do botão voltar */
+/* Botão voltar */
 .container.text-center.mt-4.mb-5 a.btn-secondary {
   padding: 10px 26px;
   font-size: 1rem;
@@ -346,30 +325,178 @@ footer img {
   background-color: #3b4a61;
 }
 
-/* Footer */
+/* ======== Perfil Usuário ======== */
+.perfil-page {
+  max-width: 450px;
+  margin: 0 auto;
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 15px;
+  background-color: #1b263b;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
 
-footer.bg-dark {
-  background-color: #1b2838;
-  color: #b0bec5;
-  padding: 30px 0;
+.perfil-nome {
+  color: #ffdd57;
+  font-weight: 700;
+  font-size: 1.8rem;
+  text-shadow: 0 0 5px rgba(255,221,87,0.7);
+}
+
+.perfil-info p {
+  font-size: 1.1rem;
+  margin: 6px 0;
+  color: #d1d9e6;
+}
+
+.perfil-links {
+  width: 100%;
+}
+
+.perfil-btn {
+  min-width: 120px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: #4a90e2;
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
   text-align: center;
-  margin-top: 60px;
-  box-shadow: 0 -5px 15px rgba(0,0,0,0.4);
+  display: inline-block;
 }
 
-footer.bg-dark img {
-  margin-bottom: 15px;
-  width: 70px;
-  height: 70px;
-  object-fit: contain;
+.perfil-btn:hover,
+.perfil-btn:focus {
+  background-color: #357ABD;
+  text-decoration: none;
+  color: white;
 }
-.aviso-sem-anuncio {
-  color: #b84d4d; /* Por exemplo, a cor text-muted do Bootstrap */
-  font-style: italic;
+
+.btn-danger {
+  width: 100%;
+  border-radius: 12px;
+  font-size: 1.15rem;
+  padding: 12px 0;
+  font-weight: 700;
+  box-shadow: 0 4px 15px rgba(233,79,79,0.6);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-danger:hover {
+  background-color: #c0392b;
+  box-shadow: 0 6px 20px rgba(192,57,43,0.8);
+}
+
+/* Responsivo */
+@media (max-width: 480px) {
+  .perfil-page {
+    max-width: 95vw;
+    padding: 30px 10px;
+  }
+
+  .perfil-nome {
+    font-size: 1.5rem;
+  }
+
+  .perfil-btn {
+    min-width: 100px;
+    padding: 8px 14px;
+    font-size: 0.9rem;
+  }
+
+  .btn-danger {
+    font-size: 1rem;
+    padding: 10px 0;
+  }
+}
+
+/* ======== Navbar: Busca e botões ======== */
+.navbar .form-control {
+  min-width: 280px;
+  max-width: 450px;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  transition: box-shadow 0.3s ease;
+}
+
+.navbar .form-control::placeholder {
+  color: #ccc;
+  opacity: 1;
+}
+
+.navbar .form-control:focus {
+  box-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+  border-color: #ff0000;
+  background-color: #152b47;
+  color: white;
+}
+
+.navbar button#botaoBusca {
+  padding: 0.55rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar button#botaoBusca:hover {
+  background-color: #cc0000;
+  border-color: #cc0000;
+}
+
+.navbar .btn-outline-light,
+.navbar .btn-outline-danger,
+.navbar .btn-danger {
+  min-width: 100px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.navbar .btn-outline-light:hover {
+  background-color: rgba(255,255,255,0.15);
+}
+
+.navbar .btn-outline-danger:hover {
+  background-color: rgba(255, 0, 0, 0.15);
+  border-color: #ff4d4d;
+  color: #ff4d4d;
+}
+
+.navbar > div > .btn {
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+@media (max-width: 576px) {
+  .navbar .form-control {
+    min-width: 100%;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .navbar form.d-flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .navbar button#botaoBusca {
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .navbar > div.d-flex.gap-2 {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+  }
   
-  padding: 1rem 0;
 }
 
-.DreamStay1:hover {
-  background-image: url("assets/DreamStay1.png");
-}
+
