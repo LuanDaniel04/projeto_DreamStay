@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/07/2025 às 18:08
+-- Tempo de geração: 20/07/2025 às 03:26
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -39,13 +39,6 @@ CREATE TABLE `anuncios` (
   `tags` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Despejando dados para a tabela `anuncios`
---
-
-INSERT INTO `anuncios` (`id`, `usuario_id`, `nome`, `localizacao`, `preco`, `avaliacao`, `descricao`, `imagem`, `tags`) VALUES
-(25, 1, 'Beira rio', 'porto alegre', 12.00, '9.8 - ótima', 'asdasd', 'uploads/68778f3076373.jpg', 'melhores avaliados,talvez voce goste');
-
 -- --------------------------------------------------------
 
 --
@@ -58,13 +51,6 @@ CREATE TABLE `favoritos` (
   `hotel_id` int(11) NOT NULL,
   `data_favorito` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Despejando dados para a tabela `favoritos`
---
-
-INSERT INTO `favoritos` (`id`, `usuario_id`, `hotel_id`, `data_favorito`) VALUES
-(3, 7, 25, '2025-07-16 16:02:10');
 
 -- --------------------------------------------------------
 
@@ -90,6 +76,18 @@ INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`, `foto_perfil`) V
 (5, 'Paulo Henrique Silva da Silva', 'teste@teste.com', '123456', 'visitante', NULL),
 (6, 'Paulo Henrique Silva da Silva', 'email@email.com', '123456', 'visitante', NULL),
 (7, 'Paulo Henrique Silva da Silva', 'paullohsds@gmail.com', '123456', 'visitante', NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `reservar`
+--
+
+CREATE TABLE `reservar` (
+  `id` int(11) NOT NULL,
+  `usuario_id` int(11) NOT NULL,
+  `hotel_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Índices para tabelas despejadas
@@ -117,6 +115,12 @@ ALTER TABLE `register`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Índices de tabela `reservar`
+--
+ALTER TABLE `reservar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT para tabelas despejadas
 --
 
@@ -124,7 +128,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `favoritos`
@@ -137,6 +141,12 @@ ALTER TABLE `favoritos`
 --
 ALTER TABLE `register`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT de tabela `reservar`
+--
+ALTER TABLE `reservar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restrições para tabelas despejadas
