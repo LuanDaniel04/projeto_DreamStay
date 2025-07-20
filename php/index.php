@@ -34,9 +34,9 @@
             echo '<button class="btn btn-danger" onclick="location.href=\'dashboard.php\'">Anunciar</button>';
             // Opcional: colocar logout fora ou em outra página para admins
           } else {
-            // Usuário normal: botão Perfil e botão Sair lado a lado
+            // Usuário normal: botão Perfil e botão Reservas lado a lado
            echo '<button class="btn btn-danger px-4" onclick="location.href=\'perfil.php\'">Perfil</button>';
-           echo '<button class="btn btn-danger px-4" onclick="location.href=\'logout.php\'">Sair</button>';
+           echo '<button class="btn btn-danger px-4" onclick="location.href=\'reservados.php\'">Reservas</button>';
 
           }
         } else {

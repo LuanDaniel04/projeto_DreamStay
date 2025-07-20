@@ -21,15 +21,6 @@ if ($result && mysqli_num_rows($result) > 0) {
 
 $nomeUsuario = htmlspecialchars($usuario['nome'] ?? $usuario['email']);
 
-// Consulta as reservas do usuário com dados do hotel/anuncio
-$reservas_sql = "
-  SELECT r.id, a.nome AS hotel_nome, a.localizacao
-  FROM reservar r
-  JOIN anuncios a ON r.hotel_id = a.id
-  WHERE r.usuario_id = $usuario_id
-  ORDER BY r.id DESC
-";
-$reservas_result = mysqli_query($conn, $reservas_sql);
 ?>
 
 <!DOCTYPE html>
@@ -61,24 +52,7 @@ $reservas_result = mysqli_query($conn, $reservas_sql);
     <a href="index.php" class="btn btn-primary perfil-btn">Início</a>
     <a href="editar_usuario.php" class="btn btn-primary perfil-btn">Editar Dados</a>
     <a href="favoritos.php" class="btn btn-primary perfil-btn">Favoritos</a>
-    <a href="index.php" class="btn btn-primary perfil-btn">Minhas Reservas</a>  <!-- Alterar o link apos criar a tela -->
-  </div>
-
-  <div class="mb-4 w-100">
-    <h3>Minhas Reservas</h3>
-    <?php if ($reservas_result && mysqli_num_rows($reservas_result) > 0): ?>
-      <ul class="list-group">
-        <?php while ($reserva = mysqli_fetch_assoc($reservas_result)): ?>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <div>
-              <strong><?= htmlspecialchars($reserva['hotel_nome']) ?></strong> — <?= htmlspecialchars($reserva['localizacao']) ?>
-            </div>
-          </li>
-        <?php endwhile; ?>
-      </ul>
-    <?php else: ?>
-      <p class="text-muted">Você ainda não tem reservas.</p>
-    <?php endif; ?>
+    <a href="reservados.php" class="btn btn-primary perfil-btn">Minhas Reservas</a> 
   </div>
 
   <a href="logout.php" class="btn btn-danger btn-lg mt-auto">Sair</a>

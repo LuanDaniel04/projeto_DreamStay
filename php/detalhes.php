@@ -36,6 +36,15 @@ $fav_result = mysqli_query($conn, $fav_sql);
 if ($fav_result && mysqli_num_rows($fav_result) > 0) {
     $ja_favorito = true;
 }
+
+// Verificar se já está reservado
+$ja_reservado = false;
+$res_sql = "SELECT * FROM reservar WHERE usuario_id = $usuario_id_logado AND hotel_id = $id";
+$res_result = mysqli_query($conn, $res_sql);
+if ($res_result && mysqli_num_rows($res_result) > 0) {
+    $ja_reservado = true;
+}
+
 mysqli_close($conn);
 ?>
 
@@ -61,7 +70,7 @@ mysqli_close($conn);
 
 <div class="container mt-5 d-flex justify-content-center">
   <div class="card hotel-card hotel-card-detalhes">
-    <img src="<?= htmlspecialchars($row['imagem']) ?>" alt="<?= htmlspecialchars($row['nome']) ?>" />
+    <img src="<?= htmlspecialchars($row['imagem']) ?>" alt="<?= htmlspecialchars($row['nome']) ?>" class="card-img-top" />
 
     <div class="card-body">
       <h3 class="card-title"><?= htmlspecialchars($row['nome']) ?></h3>
@@ -77,24 +86,25 @@ mysqli_close($conn);
       <?php if (!$eh_dono): ?>
         <div class="d-flex gap-3 mt-4">
 
-  <!-- Form Favoritar -->
-  <form action="favoritar.php" method="post" class="flex-grow-1">
-    <input type="hidden" name="hotel_id" value="<?= $id ?>">
-    <input type="hidden" name="retorno" value="detalhes.php?id=<?= $id ?>">
-    <button type="submit" class="btn <?= $ja_favorito ? 'btn-secondary' : 'btn-primary' ?> w-100">
-      <?= $ja_favorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' ?>
-    </button>
-  </form>
+          <!-- Form Favoritar -->
+          <form action="favoritar.php" method="post" class="flex-grow-1">
+            <input type="hidden" name="hotel_id" value="<?= $id ?>">
+            <input type="hidden" name="retorno" value="detalhes.php?id=<?= $id ?>">
+            <button type="submit" class="btn <?= $ja_favorito ? 'btn-secondary' : 'btn-primary' ?> w-100">
+              <?= $ja_favorito ? 'Remover dos Favoritos' : 'Adicionar aos Favoritos' ?>
+            </button>
+          </form>
 
-  <!-- Form Reservar -->
-  <form action="reservas.php" method="post" class="flex-grow-1">
-    <input type="hidden" name="hotel_id" value="<?= $id ?>">
-    <button type="submit" class="btn btn-success w-100">
-      Reservar
-    </button>
-  </form>
+          <!-- Form Reservar / Cancelar -->
+          <form action="reservas.php" method="post" class="flex-grow-1">
+            <input type="hidden" name="hotel_id" value="<?= $id ?>">
+            <input type="hidden" name="retorno" value="detalhes.php?id=<?= $id ?>">
+            <button type="submit" class="btn <?= $ja_reservado ? 'btn-warning' : 'btn-success' ?> w-100">
+              <?= $ja_reservado ? 'Cancelar Reserva' : 'Reservar' ?>
+            </button>
+          </form>
 
-</div>
+        </div>
       <?php else: ?>
         <div class="btn-group mt-4">
           <form action="editar.php" method="post">
