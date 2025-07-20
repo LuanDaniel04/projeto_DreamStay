@@ -24,7 +24,7 @@ if (mysqli_query($conn, $sql)) {
     $_SESSION['email'] = $email;
     $_SESSION['tipo'] = "visitante"; 
 
-    header("Location: index.php"); // Redireciona pro sistema já logado
+    header("Location: login.php");
     exit;
 } else {
     echo "Erro ao Registrar: " . mysqli_error($conn);

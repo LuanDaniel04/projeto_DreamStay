@@ -43,27 +43,6 @@
         <input type="password" class="form-control" id="confirmaSenhaInput" name="confirmaSenha" required minlength="6" placeholder="Repita sua senha" />
       </div>
 
-      <!-- Botão para mudar para cadastro vendedor -->
-      <!-- <div class="mb-3">
-        <button type="button" id="btnToggleVendedor" class="btn btn-outline-primary w-100">Sou vendedor</button>
-      </div> -->
-
-      <!-- Campos extras para vendedores, inicialmente escondidos -->
-      <!-- <div id="camposVendedor" style="display: none;">
-        <div class="mb-3">
-          <label for="telefoneInput" class="form-label">Telefone</label>
-          <input type="tel" class="form-control" id="telefoneInput" name="telefone" placeholder="(00) 00000-0000" />
-        </div>
-        <div class="mb-3">
-          <label for="cnpjInput" class="form-label">CNPJ</label>
-          <input type="text" class="form-control" id="cnpjInput" name="cnpj" placeholder="00.000.000/0000-00" />
-        </div>
-        <div class="mb-3">
-          <label for="nomeEmpresaInput" class="form-label">Nome da Empresa</label>
-          <input type="text" class="form-control" id="nomeEmpresaInput" name="nomeEmpresa" placeholder="Nome da sua empresa" />
-        </div>
-      </div> -->
-
       <button type="submit" class="btn btn-primary w-100">Cadastrar</button><br>
     </form>
     <p class="text-center mt-3">

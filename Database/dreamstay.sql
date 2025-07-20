@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/07/2025 às 03:26
+-- Tempo de geração: 20/07/2025 às 19:57
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -48,8 +48,7 @@ CREATE TABLE `anuncios` (
 CREATE TABLE `favoritos` (
   `id` int(11) NOT NULL,
   `usuario_id` int(11) NOT NULL,
-  `hotel_id` int(11) NOT NULL,
-  `data_favorito` timestamp NOT NULL DEFAULT current_timestamp()
+  `hotel_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -63,19 +62,15 @@ CREATE TABLE `register` (
   `nome` varchar(100) DEFAULT NULL,
   `email` varchar(100) DEFAULT NULL,
   `senha` varchar(100) DEFAULT NULL,
-  `tipo` enum('admin','visitante') NOT NULL DEFAULT 'visitante',
-  `foto_perfil` varchar(255) DEFAULT NULL
+  `tipo` enum('admin','visitante') NOT NULL DEFAULT 'visitante'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `register`
 --
 
-INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`, `foto_perfil`) VALUES
-(1, 'Adm', 'admin@admin.com', '123456', 'admin', 'uploads/68779d6846ebc_entrada.jpg'),
-(5, 'Paulo Henrique Silva da Silva', 'teste@teste.com', '123456', 'visitante', NULL),
-(6, 'Paulo Henrique Silva da Silva', 'email@email.com', '123456', 'visitante', NULL),
-(7, 'Paulo Henrique Silva da Silva', 'paullohsds@gmail.com', '123456', 'visitante', NULL);
+INSERT INTO `register` (`id`, `nome`, `email`, `senha`, `tipo`) VALUES
+(1, 'Adm', 'admin@admin.com', '123456', 'admin');
 
 -- --------------------------------------------------------
 
@@ -128,13 +123,13 @@ ALTER TABLE `reservar`
 -- AUTO_INCREMENT de tabela `anuncios`
 --
 ALTER TABLE `anuncios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT de tabela `favoritos`
 --
 ALTER TABLE `favoritos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `register`
@@ -146,7 +141,7 @@ ALTER TABLE `register`
 -- AUTO_INCREMENT de tabela `reservar`
 --
 ALTER TABLE `reservar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Restrições para tabelas despejadas

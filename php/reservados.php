@@ -30,38 +30,40 @@ $result = mysqli_query($conn, $sql);
   </nav>
 
   <!-- Conteúdo principal -->
-  <div class="container flex-grow-1 py-4">
-    <h2 class="text-center">Boa sorte para deixar essa tela bonita, minha parte eu fiz, tá tudo funcionando, vagabunda.</h2>
-
-    <div class="d-flex flex-wrap gap-4 justify-content-center mt-4">
-      <?php while ($dados = mysqli_fetch_assoc($result)) { ?>
-        <div class="card hotel-card" style="width: 18rem;">
-          <?php if (!empty($dados['imagem'])): ?>
-            <img src="<?= htmlspecialchars($dados['imagem']); ?>" class="card-img-top" alt="<?= htmlspecialchars($dados['nome']); ?>">
-          <?php else: ?>
-            <img src="caminho/para/imagem-padrao.jpg" class="card-img-top" alt="Imagem padrão">
-          <?php endif; ?>
-
-          <div class="card-body">
-            <h5 class="card-title"><?= htmlspecialchars($dados['nome']); ?></h5>
-            <p class="card-text"><strong>Localização:</strong> <?= htmlspecialchars($dados['localizacao']); ?></p>
-            <p class="card-text"><strong>Preço:</strong> R$ <?= number_format($dados['preco'], 2, ',', '.'); ?></p>
-            <p class="card-text"><strong>Avaliação:</strong> <?= htmlspecialchars($dados['avaliacao'] ?? 'N/A'); ?></p>
-            <?php if (!empty($dados['descricao'])): ?>
-              <p class="card-text"><?= nl2br(htmlspecialchars($dados['descricao'])); ?></p>
-            <?php endif; ?>
-            <?php if (!empty($dados['tags'])): ?>
-              <p class="card-text"><small class="text-muted">Tags: <?= htmlspecialchars($dados['tags']); ?></small></p>
+  <div class="container flex-grow-1 d-flex justify-content-center align-items-center py-4">
+    <?php if (mysqli_num_rows($result) == 0) { ?>
+      <h1 class="text-center">Nenhuma reserva encontrada</h1>
+    <?php } else { ?>
+      <div class="d-flex flex-wrap gap-4 justify-content-center">
+        <?php while ($dados = mysqli_fetch_assoc($result)) { ?>
+          <div class="card hotel-card" style="width: 18rem;">
+            <?php if (!empty($dados['imagem'])): ?>
+              <img src="<?= htmlspecialchars($dados['imagem']); ?>" class="card-img-top" alt="<?= htmlspecialchars($dados['nome']); ?>">
+            <?php else: ?>
+              <img src="caminho/para/imagem-padrao.jpg" class="card-img-top" alt="Imagem padrão">
             <?php endif; ?>
 
-            <form action="detalhes.php" method="post">
-              <input type="hidden" name="id" value="<?= $dados['id']; ?>">
-              <button type="submit" class="btn btn-info">Ver Detalhes</button>
-            </form>
+            <div class="card-body">
+              <h5 class="card-title"><?= htmlspecialchars($dados['nome']); ?></h5>
+              <p class="card-text"><strong>Localização:</strong> <?= htmlspecialchars($dados['localizacao']); ?></p>
+              <p class="card-text"><strong>Preço:</strong> R$ <?= number_format($dados['preco'], 2, ',', '.'); ?></p>
+              <p class="card-text"><strong>Avaliação:</strong> <?= htmlspecialchars($dados['avaliacao'] ?? 'N/A'); ?></p>
+              <?php if (!empty($dados['descricao'])): ?>
+                <p class="card-text"><?= nl2br(htmlspecialchars($dados['descricao'])); ?></p>
+              <?php endif; ?>
+              <?php if (!empty($dados['tags'])): ?>
+                <p class="card-text"><small class="text-muted">Tags: <?= htmlspecialchars($dados['tags']); ?></small></p>
+              <?php endif; ?>
+
+              <form action="detalhes.php" method="post">
+                <input type="hidden" name="id" value="<?= $dados['id']; ?>">
+                <button type="submit" class="btn btn-info">Ver Detalhes</button>
+              </form>
+            </div>
           </div>
-        </div>
-      <?php } ?>
-    </div>
+        <?php } ?>
+      </div>
+    <?php } ?>
   </div>
 
   <!-- Rodapé -->
