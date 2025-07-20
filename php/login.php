@@ -23,7 +23,7 @@
   <!-- Conteúdo Login -->
   <div class="main-content">
     <div class="container" style="max-width: 400px; margin-top: 6rem;">
-      <h3 class="mb-4 text-center">Login</h3>
+      <h1 class="mb-4 text-center">Login</h1>
       <form id="loginForm" action="entrar.php" method="post">
         <div class="mb-3">
           <label for="emailInput" class="form-label">E-mail</label>

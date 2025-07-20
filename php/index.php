@@ -21,7 +21,7 @@
     <!-- Busca centralizada -->
     <form class="d-flex flex-grow-1 mx-3" role="search" style="max-width: 500px; min-width: 250px;">
       <input id="campoBusca" class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
-      <button id="botaoBusca" class="btn btn-danger ms-2 px-4">Buscar</button>
+      <!-- <button id="botaoBusca" class="btn btn-danger ms-2 px-4">Buscar</button> é necessario? --> 
     </form>
 
     <!-- Botões Perfil, Sair e Anunciar -->
