@@ -128,15 +128,15 @@ $result = mysqli_query($conn, $sql);
     <div class="mb-3">
       <label class="form-label">Tags (selecione uma ou mais):</label><br>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="tagOfertas" name="tags[]" value="ofertas imperdiveis" />
+        <input class="form-check-input" type="checkbox" id="tagOfertas" name="tags[]" value="ofertas imperdiveis"/>
         <label class="form-check-label" for="tagOfertas">Ofertas imperdíveis</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="tagMelhores" name="tags[]" value="melhores avaliados" />
+        <input class="form-check-input" type="checkbox" id="tagMelhores" name="tags[]" value="melhores avaliados"/>
         <label class="form-check-label" for="tagMelhores">Melhores avaliados</label>
       </div>
       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="tagTalvez" name="tags[]" value="talvez voce goste" />
+        <input class="form-check-input" type="checkbox" id="tagTalvez" name="tags[]" value="talvez voce goste"/>
         <label class="form-check-label" for="tagTalvez">Talvez você goste</label>
       </div>
     </div>

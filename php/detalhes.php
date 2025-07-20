@@ -50,22 +50,12 @@ mysqli_close($conn);
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark p-3">
-  <div class="container-fluid d-flex align-items-center justify-content-between gap-3 flex-wrap">
+ <nav class="navbar navbar-dark bg-dark p-3">
+  <div class="container-fluid justify-content-center">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
-      <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" />
-      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" />
+      <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
+      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
     </a>
-
-    <form class="d-flex flex-grow-1 mx-3" role="search" method="get" action="index.php" style="max-width: 500px;">
-      <input class="form-control" name="q" type="search" placeholder="Buscar hotéis..." />
-      <button class="btn btn-danger ms-2">Buscar</button>
-    </form>
-
-    <div class="d-flex gap-2 flex-shrink-0 align-items-center">
-      <button class="btn btn-outline-light" onclick="location.href='perfil.php'">Perfil</button>
-      <button class="btn btn-outline-danger" onclick="location.href='logout.php'">Sair</button>
-    </div>
   </div>
 </nav>
 

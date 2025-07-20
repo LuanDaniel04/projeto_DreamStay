@@ -1,4 +1,4 @@
-//encerra a sessão
+<!-- encerra a sessão -->
 <?php
 session_start();
 $_SESSION = [];
