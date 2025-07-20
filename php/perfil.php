@@ -44,13 +44,12 @@ $reservas_result = mysqli_query($conn, $reservas_sql);
 
 <body class="bg-dark text-light">
 
-<nav class="navbar navbar-dark bg-dark p-3">
-  <div class="container-fluid d-flex align-items-center justify-content-between">
+  <nav class="navbar navbar-dark bg-dark p-3">
+  <div class="container-fluid justify-content-center">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
       <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
       <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
     </a>
-    <a class="btn btn-light" href="index.php">Voltar</a>
   </div>
 </nav>
 
@@ -62,7 +61,7 @@ $reservas_result = mysqli_query($conn, $reservas_sql);
     <a href="index.php" class="btn btn-primary perfil-btn">Início</a>
     <a href="editar_usuario.php" class="btn btn-primary perfil-btn">Editar Dados</a>
     <a href="favoritos.php" class="btn btn-primary perfil-btn">Favoritos</a>
-    <a href="reservas.php" class="btn btn-primary perfil-btn">Minhas Reservas</a> <!-- Botão extra -->
+    <a href="index.php" class="btn btn-primary perfil-btn">Minhas Reservas</a>  <!-- Alterar o link apos criar a tela -->
   </div>
 
   <div class="mb-4 w-100">

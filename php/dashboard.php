@@ -32,13 +32,12 @@ $result = mysqli_query($conn, $sql);
 </head>
 <body>
 
-<nav class="navbar navbar-dark bg-dark p-3">
-  <div class="container-fluid d-flex align-items-center gap-3">
+  <nav class="navbar navbar-dark bg-dark p-3">
+  <div class="container-fluid justify-content-center">
     <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
       <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
       <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
     </a>
-    <button class="btn btn-light ms-auto" onclick="location.href='index.php'">Voltar</button>
   </div>
 </nav>
 

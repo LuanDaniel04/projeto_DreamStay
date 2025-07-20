@@ -343,7 +343,6 @@ footer img, footer.bg-dark img {
   color: #ffdd57;
   font-weight: 700;
   font-size: 1.8rem;
-  text-shadow: 0 0 5px rgba(255,221,87,0.7);
 }
 
 .perfil-info p {
@@ -382,13 +381,11 @@ footer img, footer.bg-dark img {
   font-size: 1.15rem;
   padding: 12px 0;
   font-weight: 700;
-  box-shadow: 0 4px 15px rgba(233,79,79,0.6);
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-danger:hover {
   background-color: #c0392b;
-  box-shadow: 0 6px 20px rgba(192,57,43,0.8);
 }
 
 /* Responsivo */
@@ -456,7 +453,7 @@ footer img, footer.bg-dark img {
   font-size: 1rem;
   border-radius: 30px;
   font-weight: 600;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .navbar .btn-outline-light:hover {

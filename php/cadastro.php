@@ -9,19 +9,14 @@
 </head>
 <body>
   <!-- Navbar -->
-  <nav class="navbar navbar-dark bg-dark p-3">
-    <div class="container-fluid d-flex align-items-center gap-3">
-      <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
-        <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
-        <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
-      </a>
-      <div class="d-flex mx-auto" style="max-width: 420px; width: 100%;">
-        <input class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
-        <button class="btn btn-danger ms-2">Buscar</button>
-      </div>
-      <button class="btn btn-primary" onclick="location.href='login.php'">Entrar</button>
-    </div>
-  </nav>
+    <nav class="navbar navbar-dark bg-dark p-3">
+  <div class="container-fluid justify-content-center">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="index.php">
+      <img src="assets/Logo2.png" alt="Logo DreamStay" width="60" height="60" style="object-fit: contain;" />
+      <img src="assets/DreamStay2.png" alt="DreamStay" width="150" style="object-fit: contain;" />
+    </a>
+  </div>
+</nav>
 
   <div class="container mt-5" style="max-width: 480px;">
     <h4 class="mb-4">Cadastro</h4>
@@ -69,8 +64,12 @@
         </div>
       </div> -->
 
-      <button type="submit" class="btn btn-primary w-100">Cadastrar</button>
+      <button type="submit" class="btn btn-primary w-100">Cadastrar</button><br>
     </form>
+    <p class="text-center mt-3">
+        Ja possui uma conta?
+        <a href="cadastro.php">Entre por aqui</a><br>
+      </p>
   </div>
 
   <!-- Rodapé -->
