@@ -14,6 +14,7 @@ if (!$id) {
 }
 
 $usuario_id_logado = $_SESSION['id'];
+$tipo_usuario = $_SESSION["tipo"];
 
 // Buscar hotel
 $sql = "SELECT * FROM anuncios WHERE id = $id";
@@ -83,7 +84,20 @@ mysqli_close($conn);
 
       <p class="card-text"><?= nl2br(htmlspecialchars($row['descricao'])) ?></p>
 
-      <?php if (!$eh_dono): ?>
+      <?php if ($eh_dono && $tipo_usuario === 'admin'): ?>
+        <div class="btn-group mt-4">
+          <form action="editar.php" method="post">
+            <input type="hidden" name="id" value="<?= $id ?>" />
+            <button type="submit" class="btn btn-primary">Editar</button>
+          </form>
+
+          <form action="delete.php" method="post" onsubmit="return confirm('Tem certeza que deseja deletar este hotel?');">
+            <input type="hidden" name="id" value="<?= $id ?>" />
+            <button type="submit" class="btn btn-danger">Deletar</button>
+          </form>
+        </div>
+      <?php else: ?>
+
         <div class="d-flex gap-3 mt-4">
 
           <!-- Form Favoritar -->
@@ -105,18 +119,7 @@ mysqli_close($conn);
           </form>
 
         </div>
-      <?php else: ?>
-        <div class="btn-group mt-4">
-          <form action="editar.php" method="post">
-            <input type="hidden" name="id" value="<?= $id ?>" />
-            <button type="submit" class="btn btn-primary">Editar</button>
-          </form>
-
-          <form action="delete.php" method="post" onsubmit="return confirm('Tem certeza que deseja deletar este hotel?');">
-            <input type="hidden" name="id" value="<?= $id ?>" />
-            <button type="submit" class="btn btn-danger">Deletar</button>
-          </form>
-        </div>
+        
       <?php endif; ?>
     </div>
   </div>

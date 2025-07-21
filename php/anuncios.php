@@ -50,6 +50,4 @@ if ($resultado && mysqli_num_rows($resultado) > 0) {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode([]);
 }
-
-mysqli_close($conn);
 ?>

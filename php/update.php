@@ -20,7 +20,7 @@ $usuario_id_logado = $_SESSION['id'];
 $imagem = $_FILES["imagem"] ?? null;
 $caminhoImagem = null;
 
-// Verifica se o hotel pertence ao usuário logado (consulta direta)
+// Verifica se o hotel pertence ao usuário logado
 $sql_check = "SELECT usuario_id FROM anuncios WHERE id = $id";
 $result_check = mysqli_query($conn, $sql_check);
 
@@ -63,7 +63,8 @@ if ($imagem && $imagem['error'] === 0) {
 
 if (mysqli_query($conn, $sql_update)) {
     mysqli_close($conn);
-    header("Location: dashboard.php");
+    sleep(1);
+    header("Location: index.php");
     exit;
 } else {
     echo "Erro ao atualizar hotel: " . mysqli_error($conn);

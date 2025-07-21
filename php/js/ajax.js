@@ -37,6 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function exibirResultados(dados) {
+    if (!resultadoCards) return;
     resultadoCards.innerHTML = "";
 
     if (dados.length === 0) {
@@ -47,19 +48,22 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
 
-    resultadoBusca.style.display = "block";
-    secaoOfertas.style.display = "none";
-    secaoMelhores.style.display = "none";
-    secaoTalvez.style.display = "none";
+    if (resultadoBusca) resultadoBusca.style.display = "block";
+    if (secaoOfertas) secaoOfertas.style.display = "none";
+    if (secaoMelhores) secaoMelhores.style.display = "none";
+    if (secaoTalvez) secaoTalvez.style.display = "none";
   }
 
   function carregarSecao(secaoElement, tag) {
+    if (!secaoElement) return;
+
+    // Procura por .row ou #carouselInner dentro da seção
     const container = secaoElement.querySelector(".row, #carouselInner");
     if (!container) return;
 
     container.innerHTML = "";
 
-    const url = `anuncios.php?tag=${encodeURIComponent(tag)}`;
+    const url = `anuncios.php?tag=${encodeURIComponent(tag)}&t=${Date.now()}`;
 
     fetch(url)
       .then(res => res.json())
@@ -88,6 +92,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function buscar() {
+    if (!campoBusca || !resultadoBusca || !secaoOfertas || !secaoMelhores || !secaoTalvez || !resultadoCards) return;
+
     const termo = campoBusca.value.trim();
 
     if (termo.length === 0) {
@@ -98,7 +104,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    const url = `anuncios.php?search=${encodeURIComponent(termo)}`;
+    const url = `anuncios.php?search=${encodeURIComponent(termo)}&t=${Date.now()}`;
 
     fetch(url)
       .then(res => res.json())
@@ -109,11 +115,11 @@ document.addEventListener("DOMContentLoaded", function () {
       });
   }
 
-  // Carrega as seções ao iniciar
-  carregarSecao(secaoOfertas, "ofertas imperdiveis");
-  carregarSecao(secaoMelhores, "melhores avaliados");
-  carregarSecao(secaoTalvez, "talvez voce goste");
+  // Carrega as seções ao iniciar, só se os elementos existirem
+  if (secaoOfertas) carregarSecao(secaoOfertas, "ofertas imperdiveis");
+  if (secaoMelhores) carregarSecao(secaoMelhores, "melhores avaliados");
+  if (secaoTalvez) carregarSecao(secaoTalvez, "talvez voce goste");
 
-  campoBusca.addEventListener("keyup", buscar);
-  botaoBusca.addEventListener("click", buscar);
+  if (campoBusca) campoBusca.addEventListener("keyup", buscar);
+  if (botaoBusca) botaoBusca.addEventListener("click", buscar);
 });

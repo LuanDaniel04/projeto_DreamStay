@@ -21,6 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (mysqli_query($conn, $sql)) {
+        mysqli_close($conn);
         header("Location: perfil.php");
         exit;
     } else {
