@@ -21,7 +21,6 @@
     <!-- Busca centralizada -->
     <form class="d-flex flex-grow-1 mx-3" role="search" style="max-width: 500px; min-width: 250px;">
       <input id="campoBusca" class="form-control" type="search" placeholder="Busque por cidade, estado ou nome" aria-label="Buscar" />
-      <!-- <button id="botaoBusca" class="btn btn-danger ms-2 px-4">Buscar</button> é necessario? --> 
     </form>
 
     <!-- Botões Perfil, Sair e Anunciar -->
@@ -32,7 +31,6 @@
             // Admin: botão Perfil e botão Anunciar
             echo '<button class="btn btn-danger" onclick="location.href=\'perfil.php\'">Perfil</button>';
             echo '<button class="btn btn-danger" onclick="location.href=\'dashboard.php\'">Anunciar</button>';
-            // Opcional: colocar logout fora ou em outra página para admins
           } else {
             // Usuário normal: botão Perfil e botão Reservas lado a lado
            echo '<button class="btn btn-danger px-4" onclick="location.href=\'perfil.php\'">Perfil</button>';
@@ -63,7 +61,7 @@
   <div id="carouselPrincipal" class="position-relative mx-auto">
     <div id="carouselViewport" class="carousel-viewport mx-auto">
       <div id="carouselInner" class="carousel-inner d-flex align-items-stretch">
-        <!-- Aqui os cards serão inseridos dinamicamente via JS -->
+        <!-- Aqui os cards serão inseridos via JS -->
       </div>
     </div>
     <button id="prevBtn" class="carousel-control-prev" type="button" aria-label="Anterior">
@@ -79,7 +77,7 @@
 <div class="container mt-5" style="max-width: 900px;" id="secaoMelhores">
   <h4 class="mb-4">Melhores Avaliados</h4>
   <div class="row g-3">
-    <!-- Cards fixos, mantidos exatamente como você tinha -->
+    <!-- Aqui os cards serão inseridos via JS -->
   </div>
 </div>
 
@@ -87,7 +85,7 @@
 <div class="container mt-5 mb-5" style="max-width: 900px;" id="secaoTalvez">
   <h4 class="mb-4">Talvez Você Goste</h4>
   <div class="row g-3">
-    <!-- Cards fixos, mantidos exatamente como você tinha -->
+    <!-- Aqui os cards serão inseridos via JS -->
   </div>
 </div>
 
