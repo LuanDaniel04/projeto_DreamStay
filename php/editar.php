@@ -23,9 +23,9 @@ $row = mysqli_fetch_assoc($result);
 mysqli_close($conn);
 
 $opcoes_tags = [
-    "ofertas" => "Ofertas imperdíveis",
-    "melhores" => "Melhores avaliados",
-    "talvez" => "Talvez você goste"
+    "Ofertas imperdíveis" => "Ofertas imperdíveis",
+    "Melhores avaliados" => "Melhores avaliados",
+    "Talvez você goste" => "Talvez você goste"
 ];
 
 $tags_selecionadas = explode(',', $row['tags'] ?? '');
