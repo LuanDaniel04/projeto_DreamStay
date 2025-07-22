@@ -3,6 +3,7 @@
 session_start();
 $_SESSION = [];
 session_destroy();
-header("Location: login.php"); //redireciona para o login
+//redireciona para o login
+header("Location: login.php"); 
 exit;
 ?>
